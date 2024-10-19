@@ -8,8 +8,7 @@ import useWishList from "@/store/use-wishlist-store";
 
 const Header = () => {
   const { items } = useWishList();
-  console.log(items)
-
+  
   return(
     <div className="fixed z-20 inset-0 h-fit lg:h-[72px] py-2 bg-white shadow-sm">
       <div className="h-full flex flex-wrap items-center justify-between gap-2 lg:gap-16 px-4 sm:px-8 md:px-16 lg:px-28">
@@ -29,7 +28,7 @@ const Header = () => {
           </div>
         </div>
         <div>
-          <Link href="" className="hover:underline decoration-primary-50">
+          <Link href="/wishlist" className="hover:underline decoration-primary-50">
             <div className="mx-1 md:mx-4 flex items-center gap-3">
               <div className="relative">
                 <Image src={WishListIcon} alt="wishlist icon" width={25} height={25} />
