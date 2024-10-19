@@ -11,7 +11,9 @@ const Header = () => {
       <div className="h-full flex flex-wrap items-center justify-between gap-2 lg:gap-16 px-4 sm:px-8 md:px-16 lg:px-28">
         <div className="flex justify-center lg:block h-[40px] lg:h-full w-full lg:w-auto">
           <div className="relative w-[140px] h-full">
-            <Image src={BobostoreLogo} fill alt="Bobostore Logo" />
+            <Link href="/" className="contents">
+              <Image src={BobostoreLogo} fill alt="Bobostore Logo" />
+            </Link>
           </div>
         </div>
         <div className="grow">
