@@ -4,6 +4,7 @@ const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./features/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -22,6 +23,9 @@ const config: Config = {
           50: '#333333',
           40: '#474747',
           30: '#5c5c5c'
+        },
+        red: {
+          main: '#f5442d'
         }
       },
     },
