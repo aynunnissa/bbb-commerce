@@ -1,0 +1,7 @@
+.product__badge {
+  max-width: 80px;
+
+  @media screen and (min-width: 400px) {
+    max-width: 100%;
+  }
+}
