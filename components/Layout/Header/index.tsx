@@ -20,11 +20,11 @@ const Header = () => {
           </div>
         </div>
         <div className="grow">
-          <div className="flex py-2.5 px-6 rounded-md bg-primary-50 bg-opacity-10">
+          <div className="flex items-center py-2.5 px-6 rounded-md bg-primary-50 bg-opacity-10">
             <div className="grow">
               <input className="w-full text-sm text-ellipsis focus:outline-none bg-transparent" placeholder="search smartphone, shoes, and more..." />
             </div>
-            <Image src={SearchIcon} alt="search icon" width={20} height={20} />
+            <button className="rounded-md p-2 bg-primary-50"><Image src={SearchIcon} alt="search icon" width={14} height={14} /></button>
           </div>
         </div>
         <div>
