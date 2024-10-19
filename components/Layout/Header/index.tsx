@@ -1,7 +1,6 @@
 import BobostoreLogo from "@/public/images/Bobostore.svg";
 import Image from "next/image";
 import SearchIcon from "@/public/icons/search.svg";
-import BookmarkIcon from "@/public/icons/bookmark-outlined.svg";
 import WishListIcon from "@/public/icons/heart-outlined.svg";
 import Link from "next/link";
 
@@ -25,20 +24,12 @@ const Header = () => {
           </div>
         </div>
         <div>
-          <div className="flex items-center lg:divide-x">
-            <Link href="" className="hover:underline decoration-primary-50">
-              <div className="mx-1 md:mx-4 flex items-center gap-3">
-                <Image src={BookmarkIcon} alt="bookmark icon" width={15} height={15} />
-                <p className="hidden lg:block">Bookmark</p>
-              </div>
-            </Link>
-            <Link href="" className="hover:underline decoration-primary-50">
-              <div className="mx-1 md:mx-4 flex items-center gap-3">
-                <Image src={WishListIcon} alt="wishlist icon" width={25} height={25} />
-                <p className="hidden lg:block">Wishlist</p>
-              </div>
-            </Link>
-          </div>
+          <Link href="" className="hover:underline decoration-primary-50">
+            <div className="mx-1 md:mx-4 flex items-center gap-3">
+              <Image src={WishListIcon} alt="wishlist icon" width={25} height={25} />
+              <p className="hidden lg:block">Wishlist</p>
+            </div>
+          </Link>
         </div>
       </div>
       
