@@ -5,9 +5,9 @@ import Link from "next/link";
 import StarIcon from "@/public/icons/star.svg";
 import HeartIcon from "@/components/IconButton/HeartButton";
 
-const ProductCard = ({ title, price, thumbnail, discountPercentage, stock, category }: IProduct) => {
+const ProductCard = ({ id, title, rating, price, thumbnail, discountPercentage, stock, category }: IProduct) => {
   return(
-    <Link href="/" className="contents" passHref>
+    <Link href={`/products/${id}`} className="contents">
       <div className="relative rounded-2xl border-[1px] h-full flex flex-col hover:shadow-lg hover:border-2 hover:border-opacity-50 hover:border-primary-50">
         {discountPercentage > 0 && <Badge discountPercentage={discountPercentage} />}
         <div className="relative aspect-square">
@@ -25,7 +25,7 @@ const ProductCard = ({ title, price, thumbnail, discountPercentage, stock, categ
           <div>
             <hr />
             <div className="mt-2 flex items-center justify-between text-xs sm:text-sm">
-              <div className="flex gap-1 items-center"><Image src={StarIcon} width={15} height={15} alt="product rating" /><span>4.8</span></div>
+              <div className="flex gap-1 items-center"><Image src={StarIcon} width={15} height={15} alt="product rating" /><span>{rating}</span></div>
               {stock > 5 ? <p>{stock} tersisa</p> : <p className="text-red-main">Stok hampir habis</p>}
             </div>
           </div>

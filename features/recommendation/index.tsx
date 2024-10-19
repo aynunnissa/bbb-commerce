@@ -11,7 +11,6 @@ interface IProps {
 const ProductRecommendation = ({ highlightText, normalText, data }: IProps) => {
   return(
     <section className="py-6 px-4 sm:px-8 md:px-16 lg:px-28">
-      <input />
       <SectionTitle normalText={normalText} highlightText={highlightText} />
       <div className="my-8">
         <div className="flex flex-wrap gap-y-8 -mx-2">
