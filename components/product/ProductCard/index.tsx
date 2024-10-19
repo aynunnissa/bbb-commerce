@@ -1,14 +1,35 @@
-import Badge from "@/components/shared/Badge";
+import Badge from "@/components/shared/Badge/DiscountBadge";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import StarIcon from "@/public/icons/star.svg";
 import HeartIcon from "@/components/IconButton/HeartButton";
+import styles from "./productCard.module.css";
+import useWishList from "@/store/use-wishlist-store";
+import { MouseEvent } from "react";
 
 const ProductCard = ({ id, title, rating, price, thumbnail, discountPercentage, stock, category }: IProduct) => {
+  const { toggleItem, checkIsAdded } = useWishList();
+
+  const handleWishListClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    toggleItem({
+      id,
+      title,
+      rating,
+      price,
+      thumbnail,
+      discountPercentage,
+      stock,
+      category
+    });
+  }
+
   return(
     <Link href={`/products/${id}`} className="contents">
-      <div className="relative rounded-2xl border-[1px] h-full flex flex-col hover:shadow-lg hover:border-2 hover:border-opacity-50 hover:border-primary-50">
+      <div className={`${styles.product__card} relative rounded-2xl border-[1px] h-full flex flex-col hover:shadow-lg hover:border-2 hover:border-opacity-50 hover:border-primary-50`}>
         {discountPercentage > 0 && <Badge discountPercentage={discountPercentage} />}
         <div className="relative aspect-square">
           <Image src={thumbnail} fill className="object-cover rounded-t-2xl" alt="" />
@@ -16,8 +37,8 @@ const ProductCard = ({ id, title, rating, price, thumbnail, discountPercentage, 
         <div className="p-2 sm:p-4 grow flex flex-col justify-between gap-4">
           <div>
             <div className="flex items-center justify-between">
-              <div className="my-2 rounded-md bg-primary-50 py-0.5 px-1 sm:px-3 inline-block text-white text-xs truncate max-w-[100px] sm:max-w-full">{category}</div>
-              <button><HeartIcon /></button>
+              <div className={`${styles.product__badge} my-2 rounded-md bg-primary-50 py-0.5 px-1 sm:px-3 inline-block text-white text-xs truncate`}>{category}</div>
+              <button onClick={handleWishListClick}><HeartIcon solid={checkIsAdded(id)} /></button>
             </div>
             <p className="text-sm sm:text-base">{title}</p>
             <p className="text-sm sm:text-lg font-semibold text-primary-80">${price}</p>
