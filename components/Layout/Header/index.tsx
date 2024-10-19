@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Header = () => {
   return(
-    <div className="fixed inset-0 h-fit lg:h-[72px] py-2 bg-white shadow-sm">
+    <div className="fixed z-20 inset-0 h-fit lg:h-[72px] py-2 bg-white shadow-sm">
       <div className="h-full flex flex-wrap items-center justify-between gap-2 lg:gap-16 px-4 sm:px-8 md:px-16 lg:px-28">
         <div className="flex justify-center lg:block h-[40px] lg:h-full w-full lg:w-auto">
           <div className="relative w-[140px] h-full">
