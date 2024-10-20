@@ -88,7 +88,7 @@ const ProductGallery = ({ images }: IProps) => {
             {/* Thumbnail Swiper slides */}
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className='w-full h-full relative aspect-square'>
+                <div className='w-full h-full relative aspect-square cursor-pointer'>
                   <Image
                     src={image}
                     alt={`Thumbnail ${index + 1}`}

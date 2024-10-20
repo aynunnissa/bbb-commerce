@@ -19,7 +19,7 @@ const WishListItems = ({ highlightText, normalText }: IProps) => {
             <div key={product.title} className="w-1/2 md:w-1/3 xl:w-1/5">
               <div className="h-full px-1 sm:px-2">
                 <ProductCard 
-                  {...product}
+                  product={product}
                 />
               </div>
             </div>
