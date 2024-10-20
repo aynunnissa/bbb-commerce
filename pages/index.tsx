@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import ProductRecommendation from "@/features/recommendation";
 import { IProduct } from "@/types/product";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 interface IProps {
@@ -8,6 +9,8 @@ interface IProps {
   furnitures: IProduct[],
   error: boolean
 }
+
+const BestDealsSection = dynamic(() => import("@/features/recommendation"));
 
 export default function Home({ products, furnitures }: Readonly<IProps>) {
   return (
@@ -27,9 +30,9 @@ export default function Home({ products, furnitures }: Readonly<IProps>) {
       </Head>
       <Layout>
         <main>
-          <ProductRecommendation data={products.slice(0, 5)} normalText="Our Top Product Recommendations" highlightText="For You" />
-          <ProductRecommendation data={furnitures.slice(0, 5)} normalText="Grab the best deal on" highlightText="Furnitures" />
-          <ProductRecommendation data={products.slice(5)} normalText="Other Products" highlightText="" />
+          <ProductRecommendation priority data={products.slice(0, 5)} normalText="Our Top Product Recommendations" highlightText="For You" />
+          <BestDealsSection data={furnitures} normalText="Grab the best deal on" highlightText="Furnitures" />
+          <BestDealsSection data={products.slice(5)} normalText="Other Products" highlightText="" />
         </main>
       </Layout>
     </>
@@ -40,7 +43,7 @@ export async function getServerSideProps() {
   try {
     const [productResp, furnitureResp] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products?sortBy=rating&order=desc`),
-      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/category/furniture?sortBy=discountPercentage&order=desc`)
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/category/furniture?limit=5&sortBy=discountPercentage&order=desc`)
     ]);
 
     const errorCode = productResp.ok ? null : productResp.status;
