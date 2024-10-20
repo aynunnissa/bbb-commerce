@@ -43,7 +43,7 @@ const ProductCard = ({ product, priority }: IProps) => {
             <hr />
             <div className="mt-2 flex items-center justify-between text-xs sm:text-sm">
               <div className="flex gap-1 items-center"><Image src={StarIcon} width={15} height={15} alt="product rating" /><span>{product.rating}</span></div>
-              {product.stock > 5 ? <p>{product.stock} tersisa</p> : <p className="text-red-main">Stok hampir habis</p>}
+              {product.stock > 5 ? <p>{product.stock} tersisa</p> : <p className="text-red-main text-[10px] md:text-sm">Hampir habis</p>}
             </div>
           </div>
         </div>
