@@ -5,9 +5,25 @@ import WishListIcon from "@/public/icons/heart-solid.svg";
 import Link from "next/link";
 import RoundedBadge from "@/components/shared/Badge/RoundedBadge";
 import useWishList from "@/store/use-wishlist-store";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import useProductSearch from "@/store/use-product-search-store";
 
 const Header = () => {
+  const router = useRouter();
   const { items } = useWishList();
+  const [search, setSearch] = useState('');
+  const { setQuery } = useProductSearch();
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  }
+
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    setQuery(search);
+    event.preventDefault();
+    router.push(`/search?q=${search}`)
+  }
   
   return(
     <div className="fixed z-20 inset-0 h-fit lg:h-[72px] py-2 bg-white shadow-sm">
@@ -20,12 +36,19 @@ const Header = () => {
           </div>
         </div>
         <div className="grow">
-          <div className="flex items-center py-2.5 px-6 rounded-md bg-primary-50 bg-opacity-10">
-            <div className="grow">
-              <input className="w-full text-sm text-ellipsis focus:outline-none bg-transparent" placeholder="search smartphone, shoes, and more..." />
+          <form onSubmit={handleSearch} className="contents">
+            <div className="flex items-center py-2.5 px-6 rounded-md bg-primary-50 bg-opacity-10">
+              <div className="grow">
+                <input 
+                  className="w-full text-sm text-ellipsis focus:outline-none bg-transparent" 
+                  placeholder="search smartphone, shoes, and more..." 
+                  value={search}
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit" className="rounded-md p-2 bg-primary-50"><Image src={SearchIcon} alt="search icon" width={14} height={14} /></button>
             </div>
-            <button className="rounded-md p-2 bg-primary-50"><Image src={SearchIcon} alt="search icon" width={14} height={14} /></button>
-          </div>
+          </form>
         </div>
         <div>
           <Link href="/wishlist" className="hover:underline decoration-primary-50">
