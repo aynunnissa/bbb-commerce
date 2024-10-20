@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import HeroBannerSection from "@/features/hero-banner";
 import ProductRecommendation from "@/features/recommendation";
 import { IProduct } from "@/types/product";
 import dynamic from "next/dynamic";
@@ -30,6 +31,7 @@ export default function Home({ products, furnitures }: Readonly<IProps>) {
       </Head>
       <Layout>
         <main>
+          <HeroBannerSection />
           <ProductRecommendation priority data={products.slice(0, 5)} normalText="Our Top Product Recommendations" highlightText="For You" />
           <BestDealsSection data={furnitures} normalText="Grab the best deal on" highlightText="Furnitures" />
           <BestDealsSection data={products.slice(5)} normalText="Other Products" highlightText="" />

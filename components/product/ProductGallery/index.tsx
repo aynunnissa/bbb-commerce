@@ -58,7 +58,7 @@ const ProductGallery = ({ images }: IProps) => {
             navigation={true}
             thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
+            className="mySwiper2 gallery"
           >
             {/* Main Swiper slides */}
             {images.map((image, index) => (
@@ -85,7 +85,6 @@ const ProductGallery = ({ images }: IProps) => {
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper"
           >
-            {/* Thumbnail Swiper slides */}
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className='w-full h-full relative aspect-square cursor-pointer'>

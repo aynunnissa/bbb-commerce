@@ -9,6 +9,12 @@ const nextConfig = {
         port: '',
         pathname: '/products/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        port: '',
+        pathname: '/aynunnissa/tokobiru-data/**',
+      },
     ],
   },
 };
