@@ -9,7 +9,6 @@ interface IProps {
 }
 
 const SearchField = ({ search, handleSearch, handleChange } : IProps) => {
-  console.log('search render')
   return(
     <form onSubmit={handleSearch} className="contents">
       <div className="flex items-center py-2.5 px-6 rounded-md bg-primary-50 bg-opacity-10">
