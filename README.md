@@ -1,6 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Available Features
+✅ Product List Page (Homepage) in a grid layout
+
+✅ Product Detail Page
+
+✅ Search Product
+
+✅ Product WishList
+
+✅ Additional Improvement (SSR, SEO support, Lazy Loading Image & Components)
+
+## Stacks
+- NextJS
+- Typescript
+- Tailwind
+- Zustand
 
 ## Getting Started
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 

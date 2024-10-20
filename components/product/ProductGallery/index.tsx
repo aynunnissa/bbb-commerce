@@ -68,7 +68,8 @@ const ProductGallery = ({ images }: IProps) => {
                     src={image}
                     alt={`Image ${index + 1}`}
                     fill
-                    loading='eager'
+                    loading={`${index === 0 ? 'eager' : 'lazy'}`}
+                    priority={index === 0}
                     className='object-contain'
                   />
                 </div>
@@ -87,7 +88,7 @@ const ProductGallery = ({ images }: IProps) => {
             {/* Thumbnail Swiper slides */}
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className='w-full h-full relative aspect-square'>
+                <div className='w-full h-full relative aspect-square cursor-pointer'>
                   <Image
                     src={image}
                     alt={`Thumbnail ${index + 1}`}

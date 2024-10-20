@@ -61,3 +61,15 @@
   height: 100%;
   object-fit: cover;
 }
+
+.swiper-button-prev, .swiper-button-next {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+  background-color: #2db6b6;
+
+  &::after {
+    color: white;
+    font-size: 12px !important;
+  }
+}
