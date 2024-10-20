@@ -68,7 +68,8 @@ const ProductGallery = ({ images }: IProps) => {
                     src={image}
                     alt={`Image ${index + 1}`}
                     fill
-                    loading='eager'
+                    loading={`${index === 0 ? 'eager' : 'lazy'}`}
+                    priority={index === 0}
                     className='object-contain'
                   />
                 </div>
