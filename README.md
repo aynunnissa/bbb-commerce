@@ -7,7 +7,7 @@
 
 ✅ Product WishList
 
-✅ Additional Improvement (SSR, SEO, Lazy Loading Image & Components)
+✅ Additional Improvement (SSR, SEO support, Lazy Loading Image & Components)
 
 ## Stacks
 - NextJS
